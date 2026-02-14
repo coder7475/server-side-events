@@ -1,6 +1,9 @@
 const app = require("express")();
+const path = require("node:path");
 
-app.get("/", (req, res) => res.send("Hello!"));
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "index.html"));
+});
 
 app.get("/stream", (req, res) => {
   res.setHeader("Content-Type", "text/event-stream");
